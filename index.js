@@ -3,15 +3,22 @@ import {MongoClient} from "mongodb";
 import { BlogsRouter} from "./Routes/Blogs.js";
 import { userRouter } from "./Routes/users.js";
 import dotenv from "dotenv";
+import cors from "cors";
 
 dotenv.config()
 
 const app=express();
 
+const PORT=process.env.PORT;
+
+//cors is a middleware to accese the data//
+app.use(cors());
+
 //converting data into json using express.json()=>middlware//
 app.use(express.json())
 
-const PORT=process.env.PORT;
+
+
 const MONGO_URL=process.env.MONGO_URL;
 
 async function Connection(){
