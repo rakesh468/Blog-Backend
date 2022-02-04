@@ -1,17 +1,18 @@
 import { client } from "./index.js";
 import bcrypt from "bcrypt";
+import {ObjectId} from "mongodb";
 
 
 
 async function DeleteBlogById(id) {
-  return await client.db("Blog").collection("Blogs").deleteOne({ id: id });
+  return await client.db("Blog").collection("Blogs").deleteOne({ id: ObjectId(id) });
 }
 
 async function EditBlogById(id, data) {
   return await client
     .db("Blog")
     .collection("Blogs")
-    .updateOne({ id: id }, { $set: data });
+    .updateOne({ id: ObjectId(id)}, { $set: data });
 }
 
 async function CreateBlog(data) {
@@ -19,7 +20,7 @@ async function CreateBlog(data) {
 }
 
 async function GetBlogById(id) {
-  return await client.db("Blog").collection("Blogs").findOne({ id: id });
+  return await client.db("Blog").collection("Blogs").findOne({ id: ObjectId(id) });
 }
 
 async function GetallBlogs() {
