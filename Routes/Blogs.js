@@ -6,7 +6,7 @@ import {
   GetallBlogs,
 } from "../helper.js";
 import express from "express";
-import { auth } from "../middleware/Auth.js";
+import { auth } from "../middleware/auth.js";
 
 const router = express.Router();
 
