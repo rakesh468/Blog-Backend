@@ -34,7 +34,7 @@ router.post("/login",async(request,response)=>{
     const storedpassword=userfromdb.password;
     const matchpassword=await bcrypt.compare(password,storedpassword)
     if(matchpassword){
-        const token=jwt.sign({id:userfromdb._id},process.env.SECRET_KEY,{expiresIn:"1d"})
+        const token=jwt.sign({id:userfromdb._id},process.env.SECRET_KEY,{expiresIn:"10d"})
         response.status(200).send({message:"Successful Login",token:token})
     }
     else{
