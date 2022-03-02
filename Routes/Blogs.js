@@ -10,10 +10,10 @@ import { auth } from "../middleware/auth.js";
 
 const router = express.Router();
 
-//get all blogs using get method//
+//get all blogs using get method//s
 router
   .route("/")
-  .get(auth,async (request, response) => {
+  .get(async (request, response) => {
     const data = await GetallBlogs();
     response.send(data);
   })
